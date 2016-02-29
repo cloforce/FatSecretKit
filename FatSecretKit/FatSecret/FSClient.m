@@ -9,7 +9,7 @@
 #import "FSClient.h"
 #import <CommonCrypto/CommonHMAC.h>
 #import "OAuthCore.h"
-#import <SVHTTPRequest/SVHTTPRequest.h>
+#import <AFNetworking/AFNetworking.h>
 #import "FSFood.h"
 
 #define FAT_SECRET_API_ENDPOINT @"http://platform.fatsecret.com/rest/server.api"
@@ -90,12 +90,21 @@
                                                  nil, 
                                                  @"");
 
-    [SVHTTPRequest GET:[FAT_SECRET_API_ENDPOINT stringByAppendingFormat:@"?%@", authHeader]
-            parameters:nil
-            completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
-                completionBlock(response);
+    
+    NSString *urlRequest = [FAT_SECRET_API_ENDPOINT stringByAppendingString:[NSString stringWithFormat:@"?%@", authHeader]];
+    
+    
+    
+    [[AFHTTPSessionManager manager]GET:urlRequest
+                            parameters:nil
+                              progress:nil
+                               success:^(NSURLSessionTask *task, id responseObject) {
+                                   completionBlock(responseObject);
+                                   //NSLog(@"%@", responseObject);
+    }
+                               failure:^(NSURLSessionTask *operation, NSError *error) {
+                                   //NSLog(@"%@", error.description);
     }];
-
 }
 
 - (NSDictionary *) defaultParameters {

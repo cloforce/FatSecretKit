@@ -11,6 +11,26 @@ Install via [CocoaPods](http://cocoapods.org) by adding this to your `Podfile`:
 pod 'FatSecretKit'
 ```
 
+Add NSAppTransportSecurity Key to project's .plist
+
+```
+<key>NSAppTransportSecurity</key>
+<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>platform.fatsecret.com</key>
+			<dict>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+</dict>
+```
+
 Then `import` it as necessary
 
 ```objc

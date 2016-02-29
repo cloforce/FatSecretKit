@@ -75,7 +75,7 @@ You're all set to use the APIs.
 ```objc
 [[FSClient sharedClient] getFood:item.identifier
                       completion:^(FSFood *food) {
-                          NSLog(@"Name: %@", food.name)
+                          NSLog(@"Name: %@", food.foodName);
                       }];
 
 ```

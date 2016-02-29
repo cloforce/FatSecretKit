@@ -11,11 +11,11 @@
 @interface FSFood : NSObject
 
 @property (nonatomic, strong, readonly) NSString *foodDescription;
-@property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong, readonly) NSString *type;
-@property (nonatomic, strong, readonly) NSString *url;
+@property (nonatomic, strong, readonly) NSString *foodName;
+@property (nonatomic, strong, readonly) NSString *foodType;
+@property (nonatomic, strong, readonly) NSString *foodURL;
 @property (nonatomic, strong, readonly) NSString *brandName;
-@property (nonatomic, assign, readonly) NSInteger identifier;
+@property (nonatomic, assign, readonly) NSInteger foodID;
 
 @property (nonatomic, strong, readonly) NSArray *servings;
 

@@ -14,12 +14,12 @@
 - (id) initWithJSON:(NSDictionary *)json {
     self = [super init];
     if (self) {
-        _name            = [json objectForKey:@"food_name"];
-        _foodDescription = [json objectForKey:@"food_description"];
-        _type            = [json objectForKey:@"food_type"];
-        _url             = [json objectForKey:@"food_url"];
-        _identifier      = [[json objectForKey:@"food_id"] integerValue];
-        _brandName       = [json objectForKey:@"brand_name"];
+        _foodName              = [json objectForKey:@"food_name"];
+        _foodDescription       = [json objectForKey:@"food_description"];
+        _foodType              = [json objectForKey:@"food_type"];
+        _foodURL               = [json objectForKey:@"food_url"];
+        _foodID                = [[json objectForKey:@"food_id"] integerValue];
+        _brandName             = [json objectForKey:@"brand_name"];
 
         id servings = [json objectForKey:@"servings"];
 
